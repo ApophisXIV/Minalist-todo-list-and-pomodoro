@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro - ToDo List</title>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕑</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+
+</head>
+
+<body>
+    
+    <!-- <header>
+        <h1>Pomodoro - ToDo List</h1>
+    </header> -->
+
+    <main class="container">
+        <section class="date">
+            <div class="date-wrapper">
+                <p id="date-day"></p>
+                <div>
+                    <p id="date-month"></p>
+                    <p id="date-year"></p>
+                </div>
+            </div>
+            <div class="date-weekday-wrapper">
+                <p id="date-weekday"></p>
+                <div>
+                    <input type="checkbox" id="sun" class="date-weekday-checkbox" disabled>
+                    <input type="checkbox" id="mon" class="date-weekday-checkbox" disabled>
+                    <input type="checkbox" id="tue" class="date-weekday-checkbox" disabled>
+                    <input type="checkbox" id="wed" class="date-weekday-checkbox" disabled>
+                    <input type="checkbox" id="thu" class="date-weekday-checkbox" disabled>
+                    <input type="checkbox" id="fri" class="date-weekday-checkbox" disabled>
+                    <input type="checkbox" id="sat" class="date-weekday-checkbox" disabled>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="todo-list">
+
+            <div class="todo-list-section">
+                <form class="todo-form" id="todo-user-form">
+                    <input type="text" autocomplete="off" name="task_content" placeholder="Add a task...">
+                    <div class="todo-form-btn-wrapper">
+                        <button type="submit" name="add-task" class="todo-btn" id="todo-add-btn">Add new</button>
+                        <button type="button" name="sort-tasks" class="todo-btn" id="todo-sort-btn">Sort tasks</button>
+                        <button type="button" name="delete-tasks" class="todo-btn" id="todo-delete-btn">Remove
+                            completed</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="todo-list-section">
+                <p id="todo-tasks-container-title">No pending tasks</p>
+                <div id="todo-tasks-container">
+                </div>
+            </div>
+
+        </section>
+
+
+    </main>
+
+</body>
+
+</html>
