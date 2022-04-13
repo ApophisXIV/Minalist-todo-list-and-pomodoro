@@ -1,0 +1,67 @@
+:root {
+  /* ---- Global vars ---- */
+  /* Border color */
+  --border-primary: #504242;
+
+  /* Text */
+  --text-color: #c0c5ce;
+
+  /* Font */
+  --font-family-primary: "Open Sans", sans-serif;
+  --font-weight: 400;
+  /* --------------------- */
+}
+
+.date {
+  color: var(--text-color);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight);
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+.date-wrapper {
+  align-items: center;
+  display: flex;
+}
+#date-day {
+  font-size: 5rem;
+  font-weight: bold;
+  margin: 0 0.5rem 0 0;
+}
+#date-month,
+#date-year {
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+/* ----- Weekday ----- */
+#date-weekday {
+  font-size: 1.5rem;
+  letter-spacing: 0.25rem;
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+}
+.date-weekday-wrapper {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.date-weekday-wrapper div {
+  padding-right: 0.3rem;
+}
+.date-weekday-checkbox {
+  -webkit-appearance: none;
+  border-radius: 1rem;
+  border: 1px solid var(--border-primary);
+  height: 0.75rem;
+  margin-right: 0.25rem;
+  margin: 0;
+  width: 0.75rem;
+}
+/* Checkbox appearance */
+.date-weekday-checkbox:checked {
+  background-color: #eee;
+}
