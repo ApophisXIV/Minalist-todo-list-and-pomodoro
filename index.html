@@ -3,25 +3,52 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="manifest" href="manifest.webmanifest">
+    <script src="assets/js/script.js" defer></script>
+
+    <!-- Atomic CSS -->
+    <link rel="stylesheet" href="assets/css/atomic/buttons.css"/>
+    <link rel="stylesheet" href="assets/css/atomic/inputs.css"/>
+
+    <!-- Specific CSS -->
+    <link rel="stylesheet" href="assets/css/date.css"/>
+    <link rel="stylesheet" href="assets/css/todo_list.css"/>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <link rel="icon" href="assets/images/icons/favicon.ico">
+
+    <link rel="apple-touch-icon" href="assets/images/">
+    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-192x192.png">
+    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-256x256.png">
+    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-384x384.png">
+    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-512x512.png">
+
+    <meta name="apple-mobile-web-app-status-bar" content="#383E56">
+    <meta name="theme-color" content="#383E56">
+
+
     <title>Pomodoro - ToDo List</title>
-
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕑</text></svg>">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-
 </head>
 
 <body>
-    
+
     <!-- <header>
         <h1>Pomodoro - ToDo List</h1>
     </header> -->
 
     <main class="container">
-        <section class="date">
+
+        <section class="section date">
             <div class="date-wrapper">
                 <p id="date-day"></p>
                 <div>
@@ -43,25 +70,28 @@
             </div>
         </section>
 
-
-        <section class="todo-list">
-
-            <div class="todo-list-section">
-                <form class="todo-form" id="todo-user-form">
-                    <input type="text" autocomplete="off" name="task_content" placeholder="Add a task...">
-                    <div class="todo-form-btn-wrapper">
-                        <button type="submit" name="add-task" class="todo-btn" id="todo-add-btn">Add new</button>
-                        <button type="button" name="sort-tasks" class="todo-btn" id="todo-sort-btn">Sort tasks</button>
-                        <button type="button" name="delete-tasks" class="todo-btn" id="todo-delete-btn">Remove
-                            completed</button>
+        <section>
+            <div class="section">
+                <form id="todo-user-form">
+                    <input class="at-input-text" type="text" autocomplete="off" name="task_content" placeholder="Add a task...">
+                    <div class="at-btn-group-horizontal">
+                        <button type="submit" name="add-task" class="at-btn-outline at-btn-outline-success" id="todo-add-btn">
+                            Add new
+                        </button>
+                        <button type="button" name="sort-tasks" class="at-btn-outline" id="todo-sort-btn">
+                            Sort tasks
+                        </button>
+                        <button type="button" name="delete-tasks" class="at-btn-outline at-btn-outline-danger"
+                            id="todo-delete-btn">
+                            Remove completed
+                        </button>
                     </div>
                 </form>
             </div>
 
-            <div class="todo-list-section">
+            <div class="section">
                 <p id="todo-tasks-container-title">No pending tasks</p>
-                <div id="todo-tasks-container">
-                </div>
+                <div id="todo-tasks-container"></div>
             </div>
 
         </section>
