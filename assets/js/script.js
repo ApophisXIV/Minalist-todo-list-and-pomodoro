@@ -29,7 +29,7 @@ const set_date = () => {
 }
 
 const update_pending_task_count = () => {
-    const n_uncompleted_tasks = tasks_container.querySelectorAll('.todo-task-uncompleted').length
+    const n_uncompleted_tasks = tasks_container.querySelectorAll('.todo-task-uncompleted:not(.todo-task-completed)').length
     tasks_container_title.textContent = n_uncompleted_tasks === 0 ? 'No pending tasks' : `Pending tasks - ${n_uncompleted_tasks}`
 }
 
