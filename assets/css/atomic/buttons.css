@@ -1,7 +1,13 @@
 :root {
+  /* ---- Global vars ---- */
+  /* Border color */
+  --border-primary: #504242;
+  --btn-toggle-active: #333333;
+  /* ---------------------- */
+
   /* ---- Private vars ---- */
   /* Background */
-  --btn-outline-bg: #bdb8b2;
+  --btn-outline-bg: #f4f1d6;
 
   /* Success */
   --success-pastel-light: #678a74;
@@ -18,6 +24,14 @@
   /* Info */
   --info-pastel-light: #5d9cec;
   --info-pastel-dark: #2f6cb5;
+
+  /* White */
+  --white-pastel-light: #fafafa;
+  --white-pastel-dark: #f4f1d6;
+
+  /* Width and height */
+  --btn-width: 100%;
+  --btn-height: 50px;
   /* ---------------------- */
 }
 
@@ -28,49 +42,55 @@
   flex-wrap: nowrap;
   justify-content: space-around;
   width: 100%;
-  gap: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 /* ---- Outline Button ---- */
 .at-btn-outline {
   background-color: transparent;
-  border: 1px solid #eee;
+  border: 1px solid var(--border-primary);
   color: #eee;
   cursor: pointer;
   font-family: inherit;
   font-size: 1rem;
-  height: 50px;
+  height: var(--btn-height);
   overflow: hidden;
   position: relative;
-  width: 100%;
+  width: var(--btn-width);
   z-index: 1;
   outline: none;
+  margin: 0 0.35rem;
+}
+.at-btn-outline > * {
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+.at-btn-outline:first-child {
+  margin-left: 0;
+}
+.at-btn-outline:last-child {
+  margin-right: 0;
 }
 .at-btn-outline::before {
-  background-color: var(--btn-outline-bg);
+  background-color: var(--btn-toggle-active);
   content: "";
   height: 100%;
   position: absolute;
-  left: 0;
+  left: -1px; /* 1px for the border width */
   top: 0;
   transform: translateX(-100%);
   transition: all 0.3s;
   width: 100%;
   z-index: -1;
 }
-.at-btn-outline:hover {
-  color: #000;
-}
 .at-btn-outline:hover::before {
-  transform: translateX(0);
+  transform: translateX(1px); /* 1px for the border width */
 }
 
 /* Outline Success */
 .at-btn-outline-success {
   border: 1px solid var(--success-pastel-light);
-}
-.at-btn-outline-success:hover {
-  color: #fff;
 }
 .at-btn-outline-success::before {
   background-color: var(--success-pastel-dark);
@@ -80,9 +100,6 @@
 .at-btn-outline-danger {
   border: 1px solid var(--danger-pastel-light);
 }
-.at-btn-outline-danger:hover {
-  color: #fff;
-}
 .at-btn-outline-danger::before {
   background-color: var(--danger-pastel-dark);
 }
@@ -90,9 +107,6 @@
 /* Outline Warning */
 .at-btn-outline-warning {
   border: 1px solid var(--warning-pastel-light);
-}
-.at-btn-outline-warning:hover {
-  color: #fff;
 }
 .at-btn-outline-warning::before {
   background-color: var(--warning-pastel-dark);
@@ -102,9 +116,54 @@
 .at-btn-outline-info {
   border: 1px solid var(--info-pastel-light);
 }
-.at-btn-outline-info:hover {
-  color: #fff;
-}
 .at-btn-outline-info::before {
   background-color: var(--info-pastel-dark);
+}
+
+/* Outline White */
+.at-btn-outline-white {
+  border: 1px solid var(--white-pastel-light);
+}
+.at-btn-outline-white::before {
+  background-color: var(--white-pastel-dark);
+}
+.at-btn-outline-white:hover {
+  color: #000;
+}
+
+/* ---- Utils ---- */
+
+/* Circle button */
+.at-btn-circle {
+  border-radius: 100%;
+  height: calc(var(--btn-height) + 1rem - 0.35rem); /* -0.35rem for margin */
+  width: calc(var(--btn-height) + 1rem - 0.35rem); /* -0.35rem for margin */
+}
+
+/* Toggle button */
+.at-btn-toggle::before {
+  background-color: transparent;
+}
+.at-btn-toggle input[type="checkbox"],
+.at-btn-toggle input[type="radio"] {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: background 0.2s;
+  outline: none;
+}
+.at-btn-toggle input[type="checkbox"]:checked,
+.at-btn-toggle input[type="radio"]:checked {
+  background-color: var(--btn-toggle-active);
+}
+.at-btn-toggle input[type="checkbox"]:not(:checked),
+.at-btn-toggle input[type="radio"]:not(:checked) {
+  background-color: transparent;
 }
