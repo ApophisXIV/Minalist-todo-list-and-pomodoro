@@ -98,7 +98,7 @@ pomo_settings.long_break.input_range.addEventListener('input', e => {
     pomo_settings.long_break.label.innerHTML = `${(e.target.value).toString().padStart(2, '0')}:00`;
 })
 pomo_settings.interval.input_range.addEventListener('input', e => {
-    pomo_settings.interval.label.innerHTML = `${e.target.value} ${e.target.value > 1 ? 'intervals' : 'interval'}`;
+    pomo_settings.interval.label.innerHTML = e.target.value
 })
 pomo_controls.btn_start_pause.addEventListener('click', () => {
     if (pomodoro.is_running()) {
