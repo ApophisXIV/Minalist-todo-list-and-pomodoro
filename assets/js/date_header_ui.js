@@ -10,14 +10,14 @@ const date_weekday = document.querySelector('#date-weekday');
 const setup_date = () => {
 
     const date = new Date()
-    date_day.textContent = date.toLocaleString('es', { day: 'numeric' })
-    date_month.textContent = date.toLocaleString('es', { month: 'long' })
-    date_year.textContent = date.toLocaleString('es', { year: 'numeric' })
-    date_weekday.textContent = date.toLocaleString('es', { weekday: 'long' })
+    date_day.textContent = date.toLocaleString('en', { day: 'numeric' })
+    date_month.textContent = date.toLocaleString('en', { month: 'long' })
+    date_year.textContent = date.toLocaleString('en', { year: 'numeric' })
+    date_weekday.textContent = date.toLocaleString('en', { weekday: 'long' })
 
-    const lut_weekday_number = { 'L': 0, 'M': 1, 'X': 2, 'J': 3, 'V': 4, 'S': 5, 'D': 6 }
+    const lut_weekday_number = { 'M': 0, 'T': 1, 'W': 2, 'Th': 3, 'F': 4, 'Sa': 5, 'Su': 6 }
 
-    const weekday_number = lut_weekday_number[date.toLocaleString('es', { weekday: 'narrow' })]
+    const weekday_number = lut_weekday_number[date.toLocaleString('en', { weekday: 'narrow' })]
     for (let i = 0; i <= weekday_number; (weekday_checkboxs[i++].checked = true)) { }
 }
 
