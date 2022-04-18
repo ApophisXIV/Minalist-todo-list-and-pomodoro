@@ -1,104 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="manifest" href="manifest.webmanifest" />
+		<script type="module" src="assets/js/index.js" defer></script>
+        <script type="module" src="assets/js/pomodoro_ui.js" defer></script>
 
-    <link rel="manifest" href="manifest.webmanifest">
-    <script src="assets/js/script.js" defer></script>
+		<!-- Atomic CSS -->
+		<link rel="stylesheet" href="assets/css/atomic/buttons.min.css" />
+		<link rel="stylesheet" href="assets/css/atomic/inputs.min.css" />
+		<link rel="stylesheet" href="assets/css/atomic/alignment.min.css" />
+		<link rel="stylesheet" href="assets/css/atomic/spacing.min.css" />
 
-    <!-- Atomic CSS -->
-    <link rel="stylesheet" href="assets/css/atomic/buttons.css"/>
-    <link rel="stylesheet" href="assets/css/atomic/inputs.css"/>
+		<!-- Specific CSS -->
+		<link rel="stylesheet" href="assets/css/date.css" />
+		<link rel="stylesheet" href="assets/css/pomodoro.css" />
+		<link rel="stylesheet" href="assets/css/todo_list.css" />
+		<link rel="stylesheet" href="assets/css/styles.css" />
 
-    <!-- Specific CSS -->
-    <link rel="stylesheet" href="assets/css/date.css"/>
-    <link rel="stylesheet" href="assets/css/todo_list.css"/>
-    <link rel="stylesheet" href="assets/css/styles.css" />
+		<link rel="icon" href="assets/images/icons/favicon.ico" />
 
-    <link rel="icon" href="assets/images/icons/favicon.ico">
+		<link rel="apple-touch-icon" href="assets/images/" />
+		<link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-76x76.png" />
+		<link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-152x152.png" />
+		<link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-180x180.png" />
+		<link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-192x192.png" />
+		<link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-256x256.png" />
+		<link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-384x384.png" />
+		<link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-512x512.png" />
 
-    <link rel="apple-touch-icon" href="assets/images/">
-    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-180x180.png">
-    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-192x192.png">
-    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-256x256.png">
-    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-384x384.png">
-    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon-512x512.png">
+		<meta name="apple-mobile-web-app-status-bar" content="#383E56" />
+		<meta name="theme-color" content="#383E56" />
 
-    <meta name="apple-mobile-web-app-status-bar" content="#383E56">
-    <meta name="theme-color" content="#383E56">
+		<title>Pomodoro - ToDo List</title>
+	</head>
 
+	<body>
+		<main>
+			<section class="container date">
+				<div class="date-wrapper">
+					<p id="date-day">--</p>
+					<div>
+						<p id="date-month">----</p>
+						<p id="date-year">----</p>
+					</div>
+				</div>
+				<div class="date-weekday-wrapper">
+					<p id="date-weekday">---------</p>
+					<div>
+						<input type="checkbox" id="sun" class="date-weekday-checkbox" disabled />
+						<input type="checkbox" id="mon" class="date-weekday-checkbox" disabled />
+						<input type="checkbox" id="tue" class="date-weekday-checkbox" disabled />
+						<input type="checkbox" id="wed" class="date-weekday-checkbox" disabled />
+						<input type="checkbox" id="thu" class="date-weekday-checkbox" disabled />
+						<input type="checkbox" id="fri" class="date-weekday-checkbox" disabled />
+						<input type="checkbox" id="sat" class="date-weekday-checkbox" disabled />
+					</div>
+				</div>
+			</section>
 
-    <title>Pomodoro - ToDo List</title>
-</head>
+			<section class="container">
+				<!-- Pomodoro time -->
+				<p id="pomodoro-stage-timer"><i>Let's go work!</i></p>
+				<!-- Progress Bar -->
+				<progress id="pomodoro-progress-bar" class="pomodoro-work-time" max="100" value="0"></progress>
+				<!-- Pomodoro buttons -->
+				<div class="at-btn-group-horizontal">
+					<button id="pomodoro-start-pause-btn" class="at-btn-outline at-btn-outline-info">Start</button>
+					<button id="pomodoro-reset-btn" class="at-btn-outline at-btn-outline-danger">Reset</button>
+				</div>
 
-<body>
+				<!-- Pomodoro config -->
+				<details>
+					<summary>Settings</summary>
+					<section class="container">
+						<form id="pomodoro-user-settings">
+							<div class="at-group-vertical at-al-flex-start px-1">
+								<p class="mb-0"><i>Pomodoro</i></p>
+								<div class="at-group-horizontal w-100">
+									<p class="w-25" id="pomodoro-work-time-label">25:00</p>
+									<input class="at-input-range" type="range" name="pomodoro_duration" min="5" max="60" step="5" value="25" id="pomodoro-range-work" />
+								</div>
+							</div>
+							<div class="at-group-vertical at-al-flex-start px-1">
+								<p class="mb-0"><i>Break</i></p>
+								<div class="at-group-horizontal w-100">
+									<p class="w-25" id="pomodoro-break-time-label">05:00</p>
+									<input class="at-input-range" type="range" name="break_duration" min="5" max="60" step="5" value="5" id="pomodoro-range-break" />
+								</div>
+							</div>
+							<div class="at-group-vertical at-al-flex-start px-1">
+								<p class="mb-0"><i>Long break</i></p>
+								<div class="at-group-horizontal w-100">
+									<p class="w-25" id="pomodoro-long-break-time-label">15:00</p>
+									<input class="at-input-range" type="range" name="long_break_duration" min="5" max="60" step="5" value="15" id="pomodoro-range-long-break" />
+								</div>
+							</div>
+							<div class="at-group-vertical at-al-flex-start px-1">
+								<p class="mb-0"><i>Intervals</i></p>
+								<div class="at-group-horizontal w-100">
+									<p class="w-25" id="pomodoro-intervals-label">4 cicle/s</p>
+									<input class="at-input-range" type="range" name="long_break_interval" min="1" max="8" step="1" value="4" id="pomodoro-range-intervals" />
+								</div>
+							</div>
+							<button type="submit" id="config-confirm" class="my-1 at-btn-outline at-btn-outline-success w-50">Confirm</button>
+						</form>
+					</section>
+				</details>
+			</section>
 
-    <!-- <header>
-        <h1>Pomodoro - ToDo List</h1>
-    </header> -->
+			<section class="container">
+				<form id="todo-user-form">
+					<input class="at-input-text" type="text" autocomplete="off" name="task_content" placeholder="Add a task..." />
+					<div class="at-btn-group-horizontal">
+						<button type="submit" name="add-task" class="at-btn-outline at-btn-outline-success" id="todo-add-btn">Add new</button>
+						<button type="button" name="sort-tasks" class="at-btn-outline at-btn-outline-white" id="todo-sort-btn">Sort tasks</button>
+						<button type="button" name="delete-tasks" class="at-btn-outline at-btn-outline-danger" id="todo-delete-btn">Remove completed</button>
+					</div>
+				</form>
+			</section>
 
-    <main class="container">
-
-        <section class="section date">
-            <div class="date-wrapper">
-                <p id="date-day"></p>
-                <div>
-                    <p id="date-month"></p>
-                    <p id="date-year"></p>
-                </div>
-            </div>
-            <div class="date-weekday-wrapper">
-                <p id="date-weekday"></p>
-                <div>
-                    <input type="checkbox" id="sun" class="date-weekday-checkbox" disabled>
-                    <input type="checkbox" id="mon" class="date-weekday-checkbox" disabled>
-                    <input type="checkbox" id="tue" class="date-weekday-checkbox" disabled>
-                    <input type="checkbox" id="wed" class="date-weekday-checkbox" disabled>
-                    <input type="checkbox" id="thu" class="date-weekday-checkbox" disabled>
-                    <input type="checkbox" id="fri" class="date-weekday-checkbox" disabled>
-                    <input type="checkbox" id="sat" class="date-weekday-checkbox" disabled>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="section">
-                <form id="todo-user-form">
-                    <input class="at-input-text" type="text" autocomplete="off" name="task_content" placeholder="Add a task...">
-                    <div class="at-btn-group-horizontal">
-                        <button type="submit" name="add-task" class="at-btn-outline at-btn-outline-success" id="todo-add-btn">
-                            Add new
-                        </button>
-                        <button type="button" name="sort-tasks" class="at-btn-outline" id="todo-sort-btn">
-                            Sort tasks
-                        </button>
-                        <button type="button" name="delete-tasks" class="at-btn-outline at-btn-outline-danger"
-                            id="todo-delete-btn">
-                            Remove completed
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="section">
-                <p id="todo-tasks-container-title">No pending tasks</p>
-                <div id="todo-tasks-container"></div>
-            </div>
-
-        </section>
-
-
-    </main>
-
-</body>
-
+			<section class="container">
+				<p id="todo-tasks-container-title">No pending tasks</p>
+				<div id="todo-tasks-container"></div>
+			</section>
+		</main>
+	</body>
 </html>
