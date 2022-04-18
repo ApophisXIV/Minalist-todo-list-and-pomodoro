@@ -1,0 +1,128 @@
+:root {
+	/* ---- Global vars ---- */
+	/* Border color */
+	--border-primary: #504242;
+	/* ---------------------- */
+
+	/* ---- Private vars ---- */
+	/* Background */
+	--progress-bar-work-gradient-bg: linear-gradient(
+		to right,
+		#333333,
+		#443f49,
+		#5b495d,
+		#77536d,
+		#965b77,
+		#b3627a,
+		#cf6b78,
+		#e77672,
+		#fc8763,
+		#ff9f51,
+		#ffba3d,
+		#fdd82c
+	);
+	--progress-bar-break-gradient-bg: linear-gradient(
+		to right,
+		#fdd82c,
+		#b1c73f,
+		#71af55,
+		#419362,
+		#2a7563,
+		#166864,
+		#0f5a60,
+		#154c59,
+		#004c65,
+		#004a72,
+		#00477d,
+		#234183
+	);
+	--progress-bar-long-break-gradient-bg: linear-gradient(
+		to right,
+		#2c99fd,
+		#0097e6,
+		#0091cc,
+		#008ab1,
+		#008297,
+		#117782,
+		#1d6b6f,
+		#245f5d,
+		#1f4f4b,
+		#1a3f3a,
+		#14302a,
+		#0e211c
+	);
+	--progress-bar-work-bg: #716f81;
+	--progress-bar-break-bg: #b97a95;
+	--progress-bar-long-break-bg: #f6ae99;
+	/* ---------------------- */
+}
+
+#pomodoro-progress-bar {
+	margin: 1rem 0;
+}
+#pomodoro-progress-bar::-webkit-progress-bar {
+	background: transparent;
+	border: 1px solid var(--border-primary);
+}
+#pomodoro-progress-bar[value] {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: 14px;
+}
+#pomodoro-stage-timer {
+	margin: 0;
+	text-transform: capitalize;
+}
+
+#pomodoro-start-pause-btn span,
+#pomodoro-reset-btn span {
+	font-size: 1.825rem;
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 50%;
+	transform: translate(-50%, -50%);
+}
+
+details,
+details:focus,
+details:active,
+summary,
+summary:focus,
+summary:active {
+	outline: none;
+}
+
+.pomodoro-progress-bar-bg::-webkit-progress-value {
+	background: var(--progress-bar-work-gradient-bg);
+}
+.break-progress-bar-bg::-webkit-progress-value {
+	background: var(--progress-bar-break-gradient-bg);
+}
+.long-break-progress-bar-bg::-webkit-progress-value {
+	background: var(--progress-bar-long-break-gradient-bg);
+}
+
+#pomodoro-work-time-label,
+#pomodoro-break-time-label,
+#pomodoro-long-break-time-label,
+#pomodoro-intervals-label {
+	margin-right: 1.5rem;
+	padding: 0.15rem;
+	border-radius: 0.25rem;
+	color: #222;
+}
+#pomodoro-work-time-label {
+	background-color: #716f81;
+}
+#pomodoro-break-time-label {
+	background-color: #b97a95;
+}
+#pomodoro-long-break-time-label {
+	background-color: #f6ae99;
+}
+#pomodoro-intervals-label {
+	background-color: #f2e1c1;
+}
