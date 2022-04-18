@@ -19,7 +19,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  text-align: left;
 }
 .date-wrapper {
   align-items: center;
@@ -28,7 +28,7 @@
 #date-day {
   font-size: 5rem;
   font-weight: bold;
-  margin: 0 0.5rem 0 0;
+  margin: 0 0.75rem 0 0;
 }
 #date-month,
 #date-year {
@@ -40,7 +40,8 @@
 #date-weekday {
   font-size: 1.5rem;
   letter-spacing: 0.25rem;
-  margin: 0.5rem 0;
+  margin: 0;
+  margin-bottom: 0.75rem;
   text-transform: uppercase;
 }
 .date-weekday-wrapper {
@@ -64,4 +65,17 @@
 /* Checkbox appearance */
 .date-weekday-checkbox:checked {
   background-color: #eee;
+}
+
+@media (max-width: 768px) {
+  #date-day {
+    font-size: 4rem;
+  }
+  #date-month,
+  #date-year {
+    font-size: 1.45rem;
+  }
+  #date-weekday {
+    font-size: 1.15rem;
+  }
 }
