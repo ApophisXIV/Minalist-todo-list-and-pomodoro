@@ -3,7 +3,7 @@
 	"name": "Pomolist",
 	"lang": "en",
 	"description": "Another minimalist pomodoro, to-do list and weather app. Same as the others but with all the features in the same app.",
-	"start_url": "/pwa-test/",
+	"start_url": "/Pomolist/",
 	"background_color": "#222222",
 	"theme_color": "#2f4242",
 	"dir": "ltr",
