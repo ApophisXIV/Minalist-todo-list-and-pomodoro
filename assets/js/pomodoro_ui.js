@@ -1,5 +1,6 @@
 import pomodoro from './pomodoro.js';
 import { select } from './utils.js';
+import { notification } from './notifications.js';
 
 // ---- Pomodoro DOM ----
 const pomo_timer = {
@@ -39,10 +40,20 @@ const update_on_end = () => {
     pomo_controls.btn_start_pause.classList.remove('at-btn-outline-white');
 }
 
+
+const lut_pomodoro_states = {
+    'pomodoro': 'It\'s time to work!',
+    'break': 'It\'s time to take a break!',
+    'long break': 'It\'s time to take a long break. Good job!',
+}
+
 const update_ui = () => {
     const time = pomodoro.get_actual_time();
     const state = pomodoro.get_actual_state();
     const progress = pomodoro.get_progress_percentage();
+
+    if(progress == 100)
+        notification.notify(lut_pomodoro_states[state])
 
     pomo_timer.output.innerHTML = `<i>${state}</i> ${time.min}:${time.sec}`;
     pomo_timer.progress.setAttribute('value', progress);

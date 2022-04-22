@@ -20,6 +20,7 @@ const FILES_TO_CACHE = [
     './assets/css/atomic/flex.min.css',
     './assets/css/atomic/inputs.min.css',
     './assets/css/atomic/spacing.min.css',
+    './assets/images/icons/icon-512.png',
     './assets/images/icons/manifest-icon-192.maskable.png',
     './assets/images/icons/manifest-icon-512.maskable.png',
     './manifest.webmanifest',
