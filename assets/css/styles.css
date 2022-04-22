@@ -21,9 +21,7 @@
     --task-uncompleted: #d35d6f10;
     /* --------------------- */
 }
-* {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+
 html,
 body {
     background: var(--bg-primary);
