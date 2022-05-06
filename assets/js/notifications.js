@@ -18,10 +18,9 @@ class Pomolist_Notification {
 
 	notify = (message, sound, delay = 10, callback, callback_err) => {
 
-        if (sound)
-            new Audio("assets/sounds/" + sound + ".mp3").play();
+		if (Notification.permission != "granted") return;
 
-        if (Notification.permission != "granted") return;
+		if (sound) new Audio("assets/sounds/" + sound + ".mp3").play();
 
 		navigator.serviceWorker
 			.getRegistration()

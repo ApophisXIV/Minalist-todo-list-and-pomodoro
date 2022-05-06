@@ -126,7 +126,6 @@ pomo_controls.btn_start_pause.addEventListener("click", () => {
 	pomo_controls.btn_start_pause.classList.add("at-btn-outline-white");
 	pomo_controls.btn_start_pause.classList.remove("at-btn-outline-info");
 	pomodoro.start();
-	update_ui();
 });
 
 pomo_controls.btn_reset.addEventListener("click", () => {
