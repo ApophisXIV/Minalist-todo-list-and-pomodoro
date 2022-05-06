@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pomolist-static-cache-v1.1'
+const CACHE_NAME = 'pomolist-static-cache-v1.1' 
 
 // !FIXME Probably is not the best way to do this but it works for now
 const FILES_TO_CACHE = [
