@@ -51,31 +51,33 @@ const update_ui = () => {
 	const state = pomodoro.get_actual_state();
 	const progress = pomodoro.get_progress_percentage();
 
-	if (state !== pomodoro.get_last_state()) {
-		const [message, sound] = lut_pomodoro_states[state];
-		notification.notify(message, sound);
-	}
-
 	pomo_timer.output.innerHTML = `<i>${state}</i> ${time.min}:${time.sec}`;
 	pomo_timer.progress.setAttribute("value", progress);
 
-	if (state === "pomodoro") {
-		pomo_timer.progress.classList.toggle("pomodoro-progress-bar-bg", true);
-		pomo_timer.progress.classList.toggle("break-progress-bar-bg", false);
-		pomo_timer.progress.classList.toggle("long-break-progress-bar-bg", false);
-	} else if (state === "break") {
-		pomo_timer.progress.classList.toggle("pomodoro-progress-bar-bg", false);
-		pomo_timer.progress.classList.toggle("break-progress-bar-bg", true);
-		pomo_timer.progress.classList.toggle("long-break-progress-bar-bg", false);
-	} else {
-		pomo_timer.progress.classList.toggle("pomodoro-progress-bar-bg", false);
-		pomo_timer.progress.classList.toggle("break-progress-bar-bg", false);
-		pomo_timer.progress.classList.toggle("long-break-progress-bar-bg", true);
-	}
 	// Accessibility stuff
 	pomo_timer.progress.setAttribute("aria-valuenow", `${progress}`);
 	pomo_timer.progress.setAttribute("aria-valuetext", `${time.min}:${time.sec}`);
 	pomo_timer.progress.setAttribute("aria-valuemax", `${pomodoro.get_duration_from_state(state)}`);
+
+	if (state !== pomodoro.get_last_state()) {
+		// Add to metadata
+		const [message, sound] = lut_pomodoro_states[state];
+		notification.notify(message, sound);
+
+		if (state === "pomodoro") {
+			pomo_timer.progress.classList.toggle("pomodoro-progress-bar-bg", true);
+			pomo_timer.progress.classList.toggle("break-progress-bar-bg", false);
+			pomo_timer.progress.classList.toggle("long-break-progress-bar-bg", false);
+		} else if (state === "break") {
+			pomo_timer.progress.classList.toggle("pomodoro-progress-bar-bg", false);
+			pomo_timer.progress.classList.toggle("break-progress-bar-bg", true);
+			pomo_timer.progress.classList.toggle("long-break-progress-bar-bg", false);
+		} else {
+			pomo_timer.progress.classList.toggle("pomodoro-progress-bar-bg", false);
+			pomo_timer.progress.classList.toggle("break-progress-bar-bg", false);
+			pomo_timer.progress.classList.toggle("long-break-progress-bar-bg", true);
+		}
+	}
 };
 
 // ---- Pomodoro UI Events ----
@@ -124,6 +126,7 @@ pomo_controls.btn_start_pause.addEventListener("click", () => {
 	pomo_controls.btn_start_pause.classList.add("at-btn-outline-white");
 	pomo_controls.btn_start_pause.classList.remove("at-btn-outline-info");
 	pomodoro.start();
+	update_ui();
 });
 
 pomo_controls.btn_reset.addEventListener("click", () => {

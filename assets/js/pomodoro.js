@@ -96,6 +96,7 @@ class Pomodoro {
         this.set_actual_state('pomodoro')
         this.set_actual_duration(this.pomodoro_duration)
         this.update_ui_callback()
+        this.last_state = undefined
     }
 
 }
