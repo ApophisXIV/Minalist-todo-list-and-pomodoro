@@ -18,9 +18,8 @@ class Pomolist_Notification {
 
 	notify = (message, sound, delay = 10, callback, callback_err) => {
 
-        // Check if mobile and play sound
-		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
-			new Audio("assets/sounds/" + sound + ".mp3").play();
+        if (sound)
+            new Audio("assets/sounds/" + sound + ".mp3").play();
 
 		if (Notification.permission != "granted") return;
 
