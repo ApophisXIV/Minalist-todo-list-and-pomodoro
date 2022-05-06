@@ -22,6 +22,7 @@ class Pomodoro {
 
     set_actual_state = state => { this.actual_state = state }
     get_actual_state = () => { return this.actual_state }
+    get_last_state = () => { return this.last_state }
 
     set_actual_duration = duration => { this.actual_duration = duration }
     get_actual_duration = () => { return this.actual_duration }
@@ -51,6 +52,7 @@ class Pomodoro {
             // console.log('Running', this.get_actual_time(), this.get_actual_state());
             this.set_actual_duration(this.get_actual_duration() - 1)
             this.update_ui_callback()
+            this.last_state = this.get_actual_state()
 
             switch (this.actual_state) {
                 case 'pomodoro':
